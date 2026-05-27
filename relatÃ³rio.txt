@@ -1,5 +1,5 @@
 === RELATÓRIO ===
-sophi - Média: 10 - Aprovado
-rafa - Média: 10 - Aprovado
+rafa - Média: 7.5 - Aprovado
+sophi - Média: 8.5 - Aprovado
 
 Resumo: 2aprovados, 0 em recuperação, 0reprovados.
