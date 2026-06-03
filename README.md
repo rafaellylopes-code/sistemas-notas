@@ -1,10 +1,10 @@
-# 🎓 Sistema de Notas v4.1
+# Sistema de Notas v4.1
 
 Um programa em **C++** feito para gerenciar notas de alunos, calcular médias, exibir resultados e salvar tudo em um arquivo de texto.
 
 ---
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
 * **Cadastro:** Cadastra alunos e notas por disciplina.
 * **Médias:** Calculates a média de cada aluno automaticamente.
@@ -16,7 +16,7 @@ Um programa em **C++** feito para gerenciar notas de alunos, calcular médias, e
 
 ---
 
-## 📁 Histórico de Criação (Commits)
+## Histórico de Criação (Commits)
 
 O projeto foi construído passo a passo seguindo a evolução dos requisitos:
 * **Commit 1:** Cadastro dos nomes dos alunos.
@@ -30,7 +30,7 @@ O projeto foi construído passo a passo seguindo a evolução dos requisitos:
 
 ---
 
-## 💻 Como Rodar o Programa
+##  Como Rodar o Programa
 
 ### Pré-requisitos
 * Sistema Operacional **Windows**
