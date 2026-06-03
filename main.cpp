@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <windows.h>
+#include <ctime>
 using namespace std;
 
 int main()
@@ -46,12 +47,13 @@ int main()
         return 0;
     }
 
-    else if (opcaoInicial == 3) {
-         cout << "=== SISTEMA DE NOTAS v4.1 ===" << endl;
-    cout << "Desenvolvido por: Rafaelly"<< endl;
-    cout << "Turma: LOPAL 2026 - SENAI - SP " << endl;
+    else if (opcaoInicial == 3)
+    {
+        cout << "=== SISTEMA DE NOTAS v4.1 ===" << endl;
+        cout << "Desenvolvido por: Rafaelly" << endl;
+        cout << "Turma: LOPAL 2026 - SENAI - SP " << endl;
     }
-    
+
     do
     {
         cout << "Quantidade de alunos (1 a 20): ";
@@ -123,6 +125,9 @@ int main()
     ofstream arquivo("relatório.txt");
     if (arquivo.is_open())
     {
+        time_t agora = time(0);
+        char *dataHora = ctime(&agora);
+        arquivo << "Data do relatorio: " << dataHora << endl;
         arquivo << "=== RELATÓRIO ===" << endl;
         for (int i = 0; i < qtdAlunos; i++)
         {
