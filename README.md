@@ -1,4 +1,4 @@
-# 🎓 Sistema de Notas v4.0
+# 🎓 Sistema de Notas v4.1
 
 Um programa em **C++** feito para gerenciar notas de alunos, calcular médias, exibir resultados e salvar tudo em um arquivo de texto.
 
