@@ -4,94 +4,114 @@
 #include <windows.h>
 using namespace std;
 
-int main () 
+int main()
 {
-     SetConsoleOutputCP(65001);
+    SetConsoleOutputCP(65001);
 
-    //entrada - declaração das variáveis.
+    // entrada - declaração das variáveis.
     string nomes[20];
     int qtdAlunos;
-    float notas [20][5];
+    float notas[20][5];
     float media[20];
     int qtdDisciplinas;
     int opcaoInicial;
-    //processamento
+    // processamento
 
-    //leitura de alunos (commit 1)
+    // leitura de alunos (commit 1)
     cout << "=== SISTEMA DE NOTAS v4.0 ===" << endl;
     cout << "1 - Novo relatório" << endl;
     cout << "2 - Ver relatório salvo" << endl;
+    cout << "3- Sobre o sistema" << endl;
     cout << " Escolha uma opção: " << endl;
     cin >> opcaoInicial;
 
-    //leitura de arquivo (commit 5)  //== comparação
-    if (opcaoInicial == 2) {
-   ifstream leitura ("relatorio.txt");
-   if (leitura.is_open()) {
-    string linha;
-    cout << "\n";
-    while (getline(leitura, linha)) 
+    // leitura de arquivo (commit 5)  //== comparação
+    if (opcaoInicial == 2)
     {
-        cout << linha << endl;
-    }
-    leitura.close();
-   }  else
-    {
-    cout << "Nenhum relatório encontrado" << endl;
-   }
-   return 0;
+        ifstream leitura("relatorio.txt");
+        if (leitura.is_open())
+        {
+            string linha;
+            cout << "\n";
+            while (getline(leitura, linha))
+            {
+                cout << linha << endl;
+            }
+            leitura.close();
+        }
+        else
+        {
+            cout << "Nenhum relatório encontrado" << endl;
+        }
+        return 0;
     }
 
-    do {
+    else if (opcaoInicial == 3) {
+         cout << "=== SISTEMA DE NOTAS v4.1 ===" << endl;
+    cout << "Desenvolvido por: Rafaelly"<< endl;
+    cout << "Turma: LOPAL 2026 - SENAI - SP " << endl;
+    }
+    
+    do
+    {
         cout << "Quantidade de alunos (1 a 20): ";
         cin >> qtdAlunos;
     } while (qtdAlunos < 1 || qtdAlunos > 20);
-    
-     cin.ignore();
 
-     for (int i = 0; i < qtdAlunos; i++) {
+    cin.ignore();
+
+    for (int i = 0; i < qtdAlunos; i++)
+    {
         cout << "Nome do aluno " << i + 1 << ": ";
         getline(cin, nomes[i]);
-     }
+    }
     // notas e médias (commit 2)
-     do {
+    do
+    {
         cout << "\nQuantidades de disciplinas (1 a 5): " << endl;
         cin >> qtdDisciplinas;
-     } while (qtdDisciplinas < 1 || qtdDisciplinas > 5);
-     for (int i = 0; i < qtdAlunos; i++) {
+    } while (qtdDisciplinas < 1 || qtdDisciplinas > 5);
+    for (int i = 0; i < qtdAlunos; i++)
+    {
         cout << "\nNotas de " << nomes[i] << ":" << endl;
         float soma = 0;
         for (int j = 0; j < qtdDisciplinas; j++)
-         {
-            do {
+        {
+            do
+            {
                 cout << "Disciplina " << j + 1 << " (1 a 10): ";
-                cin >> notas[i] [j]; 
-            } while (notas [i] [j] < 1 || notas [i] [j] > 10);
-            soma += notas [i] [j];
+                cin >> notas[i][j];
+            } while (notas[i][j] < 1 || notas[i][j] > 10);
+            soma += notas[i][j];
         }
-        media [i] = soma / qtdDisciplinas;
-     }
+        media[i] = soma / qtdDisciplinas;
+    }
 
-    //saida
-   cout << "\nAlunos cadrastados: " << endl;
+    // saida
+    cout << "\nAlunos cadrastados: " << endl;
     for (int i = 0; i < qtdAlunos; i++)
-     {
+    {
         cout << "  " << i + 1 << ". " << nomes[i] << endl;
     }
-     // classificação e relatório (commit 3)
+    // classificação e relatório (commit 3)
     cout << "\n=== RELATORIO ===" << endl;
     int aprovados = 0, recuperacao = 0, reprovados = 0;
 
-    for ( int i = 0; i <qtdAlunos; i++) {
-        cout << nomes [i] << "- Media: " << media[i] << " - ";
-        if (media[i] >= 7) {
+    for (int i = 0; i < qtdAlunos; i++)
+    {
+        cout << nomes[i] << "- Media: " << media[i] << " - ";
+        if (media[i] >= 7)
+        {
             cout << " Aprovado " << endl;
             aprovados++;
-        } else if (media[i] >= 7)
-         {
+        }
+        else if (media[i] >= 7)
+        {
             cout << " Recuperação " << endl;
             recuperacao++;
-        } else {
+        }
+        else
+        {
             cout << " Reprovados " << endl;
             reprovados++;
         }
@@ -99,33 +119,35 @@ int main ()
 
     cout << "\nResumo: " << aprovados << " aprovados, " << recuperacao << " em recuperacao, " << reprovados << " reprovados." << endl;
 
-     // salvar em arquivo (commit 4)
-    ofstream arquivo ("relatório.txt");
+    // salvar em arquivo (commit 4)
+    ofstream arquivo("relatório.txt");
     if (arquivo.is_open())
-     {
+    {
         arquivo << "=== RELATÓRIO ===" << endl;
         for (int i = 0; i < qtdAlunos; i++)
-         {
+        {
             arquivo << nomes[i] << " - Média: " << media[i] << " - ";
-            if (media[i] >= 7) 
+            if (media[i] >= 7)
             {
                 arquivo << "Aprovado" << endl;
-            } else if (media[i] >= 5)
-             {
-                arquivo  << "Recuperação" << endl;
-            } else
-             {
+            }
+            else if (media[i] >= 5)
+            {
+                arquivo << "Recuperação" << endl;
+            }
+            else
+            {
                 arquivo << "Reprovado" << endl;
             }
         }
         arquivo << "\nResumo: " << aprovados << "aprovados, " << recuperacao << " em recuperação, " << reprovados << "reprovados." << endl;
         arquivo.close();
-        cout <<  "\nRelatorio salvo em relatorio.txt " << endl;
-    } else
-     {
+        cout << "\nRelatorio salvo em relatorio.txt " << endl;
+    }
+    else
+    {
         cout << "Erro ao criar arquivo." << endl;
     }
-
 
     return 0;
 }
