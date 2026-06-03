@@ -24,6 +24,7 @@ O projeto foi feito passo a passo:
 * **Commit 4:** Função de salvar o relatório em arquivo com data/hora.
 * **Commit 5:** Função de ler o arquivo salvo pelo menu inicial.
 * **Commit 6:** Criação do menu "Sobre o sistema".
+* **Commit 7 (Bônus):** `feat: adiciona validacao de nome em branco` — Implementação do laço `do-while` para impedir o cadastro de alunos sem nome.
 
 ---
 
